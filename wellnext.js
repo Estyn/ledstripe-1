@@ -83,6 +83,7 @@ http.createServer(function (request, response) {
                     fillBuffer(aBuf, 1, 0x00, 0x00, 0xFF);
                     fillBuffer(aBuf, 2, 0x00, 0xFF, 0x00);
                     fillBuffer(aBuf, 3, 0xFF, 0x00, 0x00);
+                    myLedStripe.sendRgbBuf(aBuf);
                 }
                 else {
                     console.log('section: '+requestData.section)
@@ -97,7 +98,7 @@ http.createServer(function (request, response) {
 
                 }
 
-                myLedStripe.sendRgbBuf(aBuf);
+
             }
             setTimeout(function () {
                 //chaseBuffer(aBuf, 3, 0xFF, 0x00, 0x00);
