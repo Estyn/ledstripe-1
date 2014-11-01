@@ -44,7 +44,7 @@ function processPost(request, response, callback) {
                       myLedStripe.connect(numLEDs, myStripeType, mySpiDevice);
 
                     var r=0xFF,g=0x00,b=0x00
-                    var bufSize = numLEDs * bytePerPixel;
+                    var bufSize = numLEDs * 3;
                     var aBuf = new Buffer(bufSize);
                     for (var i=0; i<100; i+=3){
                         aBuf[i+0]=r;

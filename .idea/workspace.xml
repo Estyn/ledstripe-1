@@ -29,8 +29,8 @@
       <file leaf-file-name="wellnext.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/wellnext.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.805492" vertical-offset="651" max-vertical-offset="1445">
-              <caret line="59" column="22" selection-start-line="59" selection-start-column="22" selection-end-line="59" selection-end-column="22" />
+            <state vertical-scroll-proportion="0.29977116" vertical-offset="651" max-vertical-offset="1445">
+              <caret line="46" column="45" selection-start-line="46" selection-start-column="45" selection-end-line="46" selection-end-column="45" />
               <folding />
             </state>
           </provider>
@@ -51,8 +51,8 @@
       <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-12.8" vertical-offset="1737" max-vertical-offset="2771">
-              <caret line="121" column="34" selection-start-line="113" selection-start-column="10" selection-end-line="121" selection-end-column="34" />
+            <state vertical-scroll-proportion="-77.52" vertical-offset="0" max-vertical-offset="2771">
+              <caret line="114" column="58" selection-start-line="114" selection-start-column="46" selection-end-line="114" selection-end-column="58" />
               <folding />
             </state>
           </provider>
@@ -233,6 +233,14 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/../SandBox/node-workshop/challenge1/finished/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.46681923" vertical-offset="0" max-vertical-offset="493">
+          <caret line="12" column="11" selection-start-line="12" selection-start-column="11" selection-end-line="12" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/example1.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="478" max-vertical-offset="1462">
@@ -245,24 +253,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-12.8" vertical-offset="1737" max-vertical-offset="2771">
-          <caret line="121" column="34" selection-start-line="113" selection-start-column="10" selection-end-line="121" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../SandBox/node-workshop/challenge1/finished/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.46681923" vertical-offset="0" max-vertical-offset="493">
-          <caret line="12" column="11" selection-start-line="12" selection-start-column="11" selection-end-line="12" selection-end-column="11" />
+        <state vertical-scroll-proportion="-77.52" vertical-offset="0" max-vertical-offset="2771">
+          <caret line="114" column="58" selection-start-line="114" selection-start-column="46" selection-end-line="114" selection-end-column="58" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/wellnext.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.805492" vertical-offset="651" max-vertical-offset="1445">
-          <caret line="59" column="22" selection-start-line="59" selection-start-column="22" selection-end-line="59" selection-end-column="22" />
+        <state vertical-scroll-proportion="0.29977116" vertical-offset="651" max-vertical-offset="1445">
+          <caret line="46" column="45" selection-start-line="46" selection-start-column="45" selection-end-line="46" selection-end-column="45" />
           <folding />
         </state>
       </provider>
