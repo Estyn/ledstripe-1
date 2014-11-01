@@ -43,6 +43,8 @@ http.createServer(function (request, response) {
             // Use request.post here
 
             requestData = JSON.parse(request.post);
+            console.log('requestData');
+            console.log(requestData);
             // everything possibly sane
             myStripeType = 'LPD8806';
             mySpiDevice = '/dev/spidev0.1';
