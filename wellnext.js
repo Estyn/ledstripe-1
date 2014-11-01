@@ -1,6 +1,8 @@
 var querystring = require('querystring');
 var http = require('http');
 var myLedStripe = require('./index');
+var numLEDs = 240;
+var aBuf = new Buffer(numLEDs*3);
 
 
 function processPost(request, response, callback) {
@@ -34,7 +36,7 @@ http.createServer(function (request, response) {
             console.log(request.post);
             // Use request.post here
 
-            numLEDs = 240;
+
             // everything possibly sane
             myStripeType = 'LPD8806';
             mySpiDevice = '/dev/spidev0.1';
@@ -46,30 +48,11 @@ http.createServer(function (request, response) {
 
 
 
-            var r = 0x00, g = 0xFF, b = 0x00;
 
-            var bufSize = numLEDs * 3;
-            var aBuf = new Buffer(bufSize);
-            for (var i = 0; i < 240; i += 3) {
-                aBuf[i + 0] = r;
-                aBuf[i + 1] = g;
-                aBuf[i + 2] = b;
-            }
+            fillBuffer(aBuf,1,0x00,0x00,0xFF);
+            fillBuffer(aBuf,2,0x00,0xFF,0x00);
+            fillBuffer(aBuf,3,0xFF,0x00,0x00);
 
-            r = 0xFF;
-            g=0x00;
-            for (var i = 240; i < 480; i += 3) {
-
-                aBuf[i + 0] = r;
-                aBuf[i + 1] = g;
-                aBuf[i + 2] = b;
-            }
-            b = 0xFF;
-            for (var i = 480; i < 720; i += 3) {
-               aBuf[i + 0] = r;
-                aBuf[i + 1] = g;
-                aBuf[i + 2] = b;
-            }
             setTimeout(function () {
                 myLedStripe.sendRgbBuf(aBuf);
             });
@@ -84,6 +67,13 @@ http.createServer(function (request, response) {
         response.writeHead(200, "OK", {'Content-Type': 'text/plain'});
         response.end();
     }
+    function fillBuffer(aBuf,section,r,g,b){
+        for (var i = 240; i < numLEDs*section; i += 3) {
 
+            aBuf[i + 0] = r;
+            aBuf[i + 1] = g;
+            aBuf[i + 2] = b;
+        }
+    }
 }).
     listen(8000);
