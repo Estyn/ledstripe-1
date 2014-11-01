@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="809eee3a-5594-429e-8755-398cc506c349" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wellnext.js" afterPath="$PROJECT_DIR$/wellnext.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="ledstripe-1.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -30,8 +29,8 @@
       <file leaf-file-name="wellnext.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/wellnext.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.7722222" vertical-offset="787" max-vertical-offset="1598">
-              <caret line="79" column="4" selection-start-line="79" selection-start-column="4" selection-end-line="79" selection-end-column="4" />
+            <state vertical-scroll-proportion="1.1472223" vertical-offset="500" max-vertical-offset="1564">
+              <caret line="78" column="11" selection-start-line="78" selection-start-column="11" selection-end-line="78" selection-end-column="11" />
               <folding />
             </state>
           </provider>
@@ -275,8 +274,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/wellnext.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7722222" vertical-offset="787" max-vertical-offset="1598">
-          <caret line="79" column="4" selection-start-line="79" selection-start-column="4" selection-end-line="79" selection-end-column="4" />
+        <state vertical-scroll-proportion="1.1472223" vertical-offset="500" max-vertical-offset="1564">
+          <caret line="78" column="11" selection-start-line="78" selection-start-column="11" selection-end-line="78" selection-end-column="11" />
           <folding />
         </state>
       </provider>
