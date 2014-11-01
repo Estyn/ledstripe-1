@@ -51,6 +51,9 @@ http.createServer(function (request, response) {
 
             //requestData = JSON.parse(request.post);
             requestData = request.post;
+            console.log("test"+requestData.test);
+            requestData = JSON.parse(request.post);
+            console.log("test2"+requestData.test);
             console.log('requestData');
             console.log(requestData);
             console.log(requestData.color);
