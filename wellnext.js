@@ -34,7 +34,7 @@ function processPost(request, response, callback) {
                 console.log(request.post);
                 // Use request.post here
 
-
+                numLEDs = 240;
                       // everything possibly sane
                       myStripeType = 'LPD8806';
                       mySpiDevice = '/dev/spidev0.1';
@@ -45,7 +45,7 @@ function processPost(request, response, callback) {
 
                       response.writeHead(200, "OK", {'Content-Type': 'text/plain'});
                       response.end();
-                  
+
             });
         } else {
             response.writeHead(200, "OK", {'Content-Type': 'text/plain'});
