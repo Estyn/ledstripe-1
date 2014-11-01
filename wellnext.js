@@ -65,8 +65,8 @@ http.createServer(function (request, response) {
             requestData.color.r = stringToHex(requestData.color.r);
             requestData.color.g = stringToHex(requestData.color.g);
             requestData.color.b = stringToHex(requestData.color.b);
-console.length(requestData.color.r );
-            
+console.log(requestData.color.r );
+
             // everything possibly sane
             myStripeType = 'LPD8806';
             mySpiDevice = '/dev/spidev0.1';
