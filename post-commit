@@ -2,16 +2,16 @@
 
 var request = require('request');
 
-var ip = 'http://127.0.0.1:8000';
-//var ip = '192.168.137.4:8000';
+//var ip = 'http://127.0.0.1:8000';
+var ip = 'http://192.168.137.4:8000';
 
 console.log('running a git hook');
 
 	//a json object to post
 	var payload = {
-		'method': 'fill',
-		'section': '1',
-		'color': {'r':'FF', 'g': 'FF', 'b': '00'}
+		"method": "fill",
+		"section": "1",
+		"color": {"r":"FF", "g": "FF", "b": "00"}
 	}
 	
 	request.post(ip, {form: payload}, function (error, response, body) {
