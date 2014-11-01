@@ -77,13 +77,15 @@ http.createServer(function (request, response) {
             myLedStripe.connect(numLEDs, myStripeType, mySpiDevice);
 
             if (request.method == 'fill') {
-                if (requestData.section == 'all') {
+                if (requestData.section == 'all')
+                {
+                    console.log('all')
                     fillBuffer(aBuf, 1, 0x00, 0x00, 0xFF);
                     fillBuffer(aBuf, 2, 0x00, 0xFF, 0x00);
                     fillBuffer(aBuf, 3, 0xFF, 0x00, 0x00);
                 }
                 else {
-
+                    console.log('section: '+requestData.section)
                     fillBuffer(aBuf, requestData.section, requestData.color.r, requestData.color.g, requestData.color.b);
                 }
 
