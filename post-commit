@@ -10,7 +10,7 @@ console.log('running a git hook');
 	//a json object to post
 	var payload = {
 		'method': 'fill',
-		'section': 'all',
+		'section': '1',
 		'color': {'r':'FF', 'g': 'FF', 'b': '00'}
 	}
 	
