@@ -71,7 +71,7 @@ http.createServer(function (request, response) {
             {
                 console.log(request.post)
                 console.log(request.post.section)
-                fillBuffer(aBuf, requestData.section, requestData.section.r, requestData.section.g, requestData.section.b);
+                fillBuffer(aBuf, requestData.section, requestData.section.color.r, requestData.section.color.g, requestData.section.color.b);
             }
             setTimeout(function () {
                 myLedStripe.sendRgbBuf(aBuf);
