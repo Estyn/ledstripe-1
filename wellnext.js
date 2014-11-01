@@ -75,7 +75,7 @@ http.createServer(function (request, response) {
 
             // connecting to SPI
             myLedStripe.connect(numLEDs, myStripeType, mySpiDevice);
-
+            console.log('method'+request.method);
             if (request.method == 'fill') {
                 if (requestData.section == 'all')
                 {
