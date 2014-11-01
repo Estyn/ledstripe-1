@@ -90,13 +90,45 @@ http.createServer(function (request, response) {
 
                         fillBuffer(aBuf, requestData.section, requestData.color.r, requestData.color.g, requestData.color.b);
                         myLedStripe.sendRgbBuf(aBuf);
-  
+
 
 
                 }
 
 
             }
+            if (requestData.method == 'blink') {
+                if (requestData.section == 'all')
+                {
+                    console.log('all')
+                    fillBuffer(aBuf, 1, 0x00, 0x00, 0xFF);
+                    fillBuffer(aBuf, 2, 0x00, 0xFF, 0x00);
+                    fillBuffer(aBuf, 3, 0xFF, 0x00, 0x00);
+                    myLedStripe.sendRgbBuf(aBuf);
+                }
+                else {
+                    console.log('section: '+requestData.section)
+                    setTimeout(function () {
+                        fillBuffer(aBuf, requestData.section, requestData.color.r, requestData.color.g, requestData.color.b);
+                        myLedStripe.sendRgbBuf(aBuf);
+                    },1000);
+                    setTimeout(function () {
+                        fillBuffer(aBuf, requestData.section, 0x00,0x00,0x00);
+                        myLedStripe.sendRgbBuf(aBuf);
+                    },1000);
+                    setTimeout(function () {
+                        fillBuffer(aBuf, requestData.section, requestData.color.r, requestData.color.g, requestData.color.b);
+                        myLedStripe.sendRgbBuf(aBuf);
+                    },1000);
+                    setTimeout(function () {
+                        fillBuffer(aBuf, requestData.section, 0x00,0x00,0x00);
+                        myLedStripe.sendRgbBuf(aBuf);
+                    },1000);
+                }
+
+
+            }
+
             if (requestData.method == 'off') {
 
                     console.log('off')
