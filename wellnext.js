@@ -52,10 +52,9 @@ http.createServer(function (request, response) {
             //requestData = JSON.parse(request.post);
             requestData = request.post;
             requestData = JSON.parse(request.post);
-            console.log("test2"+requestData.test.a);
-            console.log('requestData');
-            console.log(requestData);
-            console.log(requestData.color);
+            console.log("testing 2 "+requestData.test.a);
+
+
             // everything possibly sane
             myStripeType = 'LPD8806';
             mySpiDevice = '/dev/spidev0.1';
