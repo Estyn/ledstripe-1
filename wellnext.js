@@ -44,7 +44,7 @@ http.createServer(function (request, response) {
             console.log(request.post);
             // Use request.post here
 
-            requestData = JSON.parse(request.post);
+            //requestData = JSON.parse(request.post);
             console.log('requestData');
             console.log(requestData);
             // everything possibly sane
