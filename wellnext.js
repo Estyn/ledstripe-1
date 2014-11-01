@@ -87,7 +87,7 @@ http.createServer(function (request, response) {
                 }
                 else {
                     console.log('section: '+requestData.section)
-                  
+
                         fillBuffer(aBuf, requestData.section, requestData.color.r, requestData.color.g, requestData.color.b);
                         myLedStripe.sendRgbBuf(aBuf);
 
@@ -100,7 +100,7 @@ http.createServer(function (request, response) {
             if (requestData.method == 'off') {
 
                     console.log('off')
-                    fillBuffer(aBuf, 1, 0xFF, 0xFF, 0xFF);
+                    fillBuffer(aBuf, 1, 0x00, 0x00, 0x00);
                     fillBuffer(aBuf, 2, 0xFF, 0xFF, 0xFF);
                     fillBuffer(aBuf, 3, 0xFF, 0xFF, 0xFF);
                     myLedStripe.sendRgbBuf(aBuf);
