@@ -55,8 +55,10 @@ http.createServer(function (request, response) {
 
             setTimeout(function () {
                 myLedStripe.sendRgbBuf(aBuf);
-            });
-
+            },1000);
+            setTimeout(function () {
+                chaseBuffer(aBuf,3,0xFF,0x00,0x00);
+            },1000);
 
             response.writeHead(200, "OK", {'Content-Type': 'text/plain'});
             response.end();
@@ -74,6 +76,25 @@ http.createServer(function (request, response) {
             aBuf[i + 1] = g;
             aBuf[i + 2] = b;
         }
+    }
+    function chaseBuffer(aBuf,section,r,g,b){
+        for (var i = numLEDs*(section-1); i < numLEDs*section; i += 3) {
+
+            aBuf[i + 0] = 0x00;
+            aBuf[i + 1] = 0x00;
+            aBuf[i + 2] = 0x00;
+        }
+        for (var i = numLEDs*(section-1); i < numLEDs*section; i += 3) {
+
+            aBuf[i + 0] = 0x00;
+            aBuf[i + 1] = 0x00;
+            aBuf[i + 2] = 0x00;
+            aBuf[i + 0] = r;
+            aBuf[i + 1] = g;
+            aBuf[i + 2] = b;
+            myLedStripe.sendRgbBuf(aBuf);
+        }
+
     }
 }).
     listen(8000);
