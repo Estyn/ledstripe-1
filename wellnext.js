@@ -52,7 +52,7 @@ http.createServer(function (request, response) {
             //requestData = JSON.parse(request.post);
             requestData = request.post;
             requestData = JSON.parse(request.post);
-            console.log("testing 2 "+requestData.test.a);
+
 
 
             // everything possibly sane
