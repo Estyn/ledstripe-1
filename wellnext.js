@@ -109,18 +109,22 @@ http.createServer(function (request, response) {
                 else {
                     console.log('section: '+requestData.section)
                     setTimeout(function () {
+                        console.log('blink on')
                         fillBuffer(aBuf, requestData.section, requestData.color.r, requestData.color.g, requestData.color.b);
                         myLedStripe.sendRgbBuf(aBuf);
                     },1000);
                     setTimeout(function () {
+                        console.log('blink off')
                         fillBuffer(aBuf, requestData.section, 0x00,0x00,0x00);
                         myLedStripe.sendRgbBuf(aBuf);
                     },1000);
                     setTimeout(function () {
+                        console.log('blink on')
                         fillBuffer(aBuf, requestData.section, requestData.color.r, requestData.color.g, requestData.color.b);
                         myLedStripe.sendRgbBuf(aBuf);
                     },1000);
                     setTimeout(function () {
+                        console.log('blink off')
                         fillBuffer(aBuf, requestData.section, 0x00,0x00,0x00);
                         myLedStripe.sendRgbBuf(aBuf);
                     },1000);
