@@ -52,6 +52,7 @@ http.createServer(function (request, response) {
             requestData = JSON.parse(requestData.post);
             console.log('requestData');
             console.log(requestData);
+            console.log(requestData.color);
             // everything possibly sane
             myStripeType = 'LPD8806';
             mySpiDevice = '/dev/spidev0.1';
@@ -62,11 +63,6 @@ http.createServer(function (request, response) {
             myLedStripe.fill(0xFF, 0x00, 0x00);
 
 
-            //         var payload = {
-// 'method': 'light',
-// 'section': 'all',
-// 'color': {'r':'FF', 'g': 'FF', 'b': '00'}
-// }
             if (requestData.section == 'all') {
                 fillBuffer(aBuf, 1, 0x00, 0x00, 0xFF);
                 fillBuffer(aBuf, 2, 0x00, 0xFF, 0x00);
