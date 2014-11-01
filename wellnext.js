@@ -4,6 +4,11 @@ var myLedStripe = require('./index');
 var numLEDs = 240;
 var aBuf = new Buffer(numLEDs * 3);
 
+function nonformatted(){
+var somevar = 'do i get tabbed?'
+console.log('test');
+
+}
 
 function processPost(request, response, callback) {
     var queryData = "";
