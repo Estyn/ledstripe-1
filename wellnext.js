@@ -91,6 +91,7 @@ http.createServer(function (request, response) {
             }
             else if (request.method = 'off')
             {
+                console.log('Turning Off')
                 fillBuffer(aBuf, 1, 0xFF, 0xFF, 0xFF);
                 fillBuffer(aBuf, 2, 0xFF, 0xFF, 0xFF);
                 fillBuffer(aBuf, 3, 0xFF, 0xFF , 0xFF);
