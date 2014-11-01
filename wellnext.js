@@ -42,6 +42,19 @@ function processPost(request, response, callback) {
 // 'section': 'all',
 // 'color': {'r':'FF', 'g': 'FF', 'b': '00'}
 // }
+function stringToHex(str) {
+    var hex, i;
+   // var str = "\u6f22\u5b57"; // "\u6f22\u5b57" === "漢字"
+    var result = "";
+    for (i = 0; i < str.length; i++) {
+        hex = str.charCodeAt(i).toString(16);
+        result += ("000" + hex).slice(-4);
+    }
+    return result;
+}
+fillBuffer(aBuf, 1, 0xFF, 0xFF, 0xFF);
+fillBuffer(aBuf, 2, 0xFF, 0xFF, 0xFF);
+fillBuffer(aBuf, 3, 0xFF, 0xFF, 0xFF);
 
 http.createServer(function (request, response) {
     if (request.method == 'POST') {
@@ -49,9 +62,14 @@ http.createServer(function (request, response) {
             console.log(request.post);
             // Use request.post here
 
+            //requestData = JSON.parse(request.post);
             requestData = request.post;
-            console.log('requestData');
-            console.log(requestData);
+            requestData = JSON.parse(request.post);
+            requestData.color.r = stringToHex(requestData.color.r);
+            requestData.color.g = stringToHex(requestData.color.g);
+            requestData.color.b = stringToHex(requestData.color.b);
+console.log(requestData.color.r );
+
             // everything possibly sane
             myStripeType = 'LPD8806';
             mySpiDevice = '/dev/spidev0.1';
@@ -62,11 +80,6 @@ http.createServer(function (request, response) {
             myLedStripe.fill(0xFF, 0x00, 0x00);
 
 
-            //         var payload = {
-// 'method': 'light',
-// 'section': 'all',
-// 'color': {'r':'FF', 'g': 'FF', 'b': '00'}
-// }
             if (requestData.section == 'all') {
                 fillBuffer(aBuf, 1, 0x00, 0x00, 0xFF);
                 fillBuffer(aBuf, 2, 0x00, 0xFF, 0x00);
@@ -74,15 +87,14 @@ http.createServer(function (request, response) {
             }
             else
             {
-                console.log(request.post)
-                console.log(request.post.section)
+
                 fillBuffer(aBuf, requestData.section, requestData.color.r, requestData.color.g, requestData.color.b);
             }
             setTimeout(function () {
                 myLedStripe.sendRgbBuf(aBuf);
             }, 1000);
             setTimeout(function () {
-                chaseBuffer(aBuf, 3, 0xFF, 0x00, 0x00);
+                //chaseBuffer(aBuf, 3, 0xFF, 0x00, 0x00);
             }, 1000);
 
             response.writeHead(200, "OK", {'Content-Type': 'text/plain'});
