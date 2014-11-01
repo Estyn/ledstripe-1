@@ -65,7 +65,7 @@ http.createServer(function (request, response) {
             }
             else
             {
-                fillBuffer(aBuf, request.post.section, request.post.section.red, request.post.section.green, request.post.section.blue);
+                fillBuffer(aBuf, request.post.section, request.post.section.r, request.post.section.g, request.post.section.b);
             }
             setTimeout(function () {
                 myLedStripe.sendRgbBuf(aBuf);
