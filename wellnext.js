@@ -90,7 +90,7 @@ http.createServer(function (request, response) {
 
                         fillBuffer(aBuf, requestData.section, requestData.color.r, requestData.color.g, requestData.color.b);
                         myLedStripe.sendRgbBuf(aBuf);
-
+  
 
 
                 }
