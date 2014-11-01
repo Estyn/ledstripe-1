@@ -42,7 +42,7 @@ http.createServer(function (request, response) {
             console.log(request.post);
             // Use request.post here
 
-
+            requestData = JSON.parse(request.post);
             // everything possibly sane
             myStripeType = 'LPD8806';
             mySpiDevice = '/dev/spidev0.1';
@@ -58,14 +58,16 @@ http.createServer(function (request, response) {
 // 'section': 'all',
 // 'color': {'r':'FF', 'g': 'FF', 'b': '00'}
 // }
-            if (request.post.section == 'all') {
+            if (requestData.section == 'all') {
                 fillBuffer(aBuf, 1, 0x00, 0x00, 0xFF);
                 fillBuffer(aBuf, 2, 0x00, 0xFF, 0x00);
                 fillBuffer(aBuf, 3, 0xFF, 0x00, 0x00);
             }
             else
             {
-                fillBuffer(aBuf, request.post.section, request.post.section.r, request.post.section.g, request.post.section.b);
+                console.log(request.post)
+                console.log(request.post.section)
+                fillBuffer(aBuf, requestData.section, requestData.section.r, requestData.section.g, requestData.section.b);
             }
             setTimeout(function () {
                 myLedStripe.sendRgbBuf(aBuf);
