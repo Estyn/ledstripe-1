@@ -76,7 +76,7 @@ http.createServer(function (request, response) {
             // connecting to SPI
             myLedStripe.connect(numLEDs, myStripeType, mySpiDevice);
 
-            if (request.method == 'fill') {
+            if (request.method === 'fill') {
                 if (requestData.section == 'all') {
                     fillBuffer(aBuf, 1,requestData.color.r, requestData.color.g, requestData.color.b);
                     fillBuffer(aBuf, 2, requestData.color.r, requestData.color.g, requestData.color.b);
@@ -89,7 +89,7 @@ http.createServer(function (request, response) {
 
 
             }
-            else if (request.method = 'off')
+            else if (request.method === 'off')
             {
                 console.log('Turning Off')
                 fillBuffer(aBuf, 1, 0xFF, 0xFF, 0xFF);
