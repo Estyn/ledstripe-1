@@ -87,7 +87,7 @@ http.createServer(function (request, response) {
                 else {
                     console.log('section: '+requestData.section)
                     fillBuffer(aBuf, requestData.section, requestData.color.r, requestData.color.g, requestData.color.b);
-                }
+                } 
 
                 myLedStripe.sendRgbBuf(aBuf);
             }
