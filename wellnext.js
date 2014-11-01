@@ -84,14 +84,16 @@ http.createServer(function (request, response) {
             aBuf[i + 1] = 0x00;
             aBuf[i + 2] = 0x00;
         }
+        console.log('set white');
         for (var i = numLEDs*(section-1); i < numLEDs*section; i += 3) {
 
             aBuf[i + 0] = 0x00;
             aBuf[i + 1] = 0x00;
             aBuf[i + 2] = 0x00;
-            aBuf[i + 0] = r;
-            aBuf[i + 1] = g;
-            aBuf[i + 2] = b;
+            aBuf[i + 3] = r;
+            aBuf[i + 4] = g;
+            aBuf[i + 5] = b;
+            console.log('set pixel'+i);
             setTimeout(function () {
                 myLedStripe.sendRgbBuf(aBuf);
             },1000);
