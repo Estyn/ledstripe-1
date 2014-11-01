@@ -52,7 +52,7 @@ function stringToHex(str) {
     }
     return result;
 }
- 
+
 
 http.createServer(function (request, response) {
     if (request.method == 'POST') {
@@ -75,21 +75,26 @@ http.createServer(function (request, response) {
 
             // connecting to SPI
             myLedStripe.connect(numLEDs, myStripeType, mySpiDevice);
-            myLedStripe.fill(0xFF, 0x00, 0x00);
 
+            if (request.method == 'fill') {
+                if (requestData.section == 'all') {
+                    fillBuffer(aBuf, 1, 0x00, 0x00, 0xFF);
+                    fillBuffer(aBuf, 2, 0x00, 0xFF, 0x00);
+                    fillBuffer(aBuf, 3, 0xFF, 0x00, 0x00);
+                }
+                else {
 
-            if (requestData.section == 'all') {
-                fillBuffer(aBuf, 1, 0x00, 0x00, 0xFF);
-                fillBuffer(aBuf, 2, 0x00, 0xFF, 0x00);
-                fillBuffer(aBuf, 3, 0xFF, 0x00, 0x00);
-            }
-            else {
+                    fillBuffer(aBuf, requestData.section, requestData.color.r, requestData.color.g, requestData.color.b);
+                }
 
-                fillBuffer(aBuf, requestData.section, requestData.color.r, requestData.color.g, requestData.color.b);
-            }
-            setTimeout(function () {
                 myLedStripe.sendRgbBuf(aBuf);
-            }, 1000);
+            }
+            else if (request.method = 'off')
+            {
+                fillBuffer(aBuf, 1, 0xFF, 0xFF, 0xFF);
+                fillBuffer(aBuf, 2, 0xFF, 0xFF, 0xFF);
+                fillBuffer(aBuf, 3, 0xFF, 0xFF , 0xFF);
+            }
             setTimeout(function () {
                 //chaseBuffer(aBuf, 3, 0xFF, 0x00, 0x00);
             }, 1000);
@@ -108,19 +113,19 @@ http.createServer(function (request, response) {
     function chaseBuffer(aBuf, section, r, g, b) {
         for (var i = numLEDs * (section - 1); i < numLEDs * section; i += 3) {
 
-            aBuf[i + 0] = 0x00;
-            aBuf[i + 1] = 0x00;
-            aBuf[i + 2] = 0x00;
+            aBuf[i + 0] = 0xFF;
+            aBuf[i + 1] = 0xFF;
+            aBuf[i + 2] = 0xFF;
         }
         console.log('set white');
         for (var i = numLEDs * (section - 1); i < numLEDs * section; i += 3) {
 
-            aBuf[i + 0] = 0x00;
-            aBuf[i + 1] = 0x00;
-            aBuf[i + 2] = 0x00;
+            aBuf[i + 0] = 0xFF;
+            aBuf[i + 1] = 0xFF;
+            aBuf[i + 2] = 0xFF;
             aBuf[i + 3] = r;
-            aBuf[i + 4] = g;
-            aBuf[i + 5] = b;
+            aBuf[i + 4] = b;
+            aBuf[i + 5] = g;
             console.log('set pixel' + i);
             setTimeout(function () {
                 myLedStripe.sendRgbBuf(aBuf);
