@@ -56,8 +56,8 @@ http.createServer(function (request, response) {
                 aBuf[i + 2] = b;
             }
 
-            r = 0x00;
-            g=0xFF;
+            r = 0xFF;
+            g=0x00;
             for (var i = 240; i < 480; i += 3) {
 
                 aBuf[i + 0] = r;
