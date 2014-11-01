@@ -87,14 +87,11 @@ http.createServer(function (request, response) {
                 }
                 else {
                     console.log('section: '+requestData.section)
-                    setTimeout(function () {
+                  
                         fillBuffer(aBuf, requestData.section, requestData.color.r, requestData.color.g, requestData.color.b);
                         myLedStripe.sendRgbBuf(aBuf);
-                    }, 1000);
-                    setTimeout(function () {
-                        fillBuffer(aBuf, requestData.section, 0xFF,0xFF,0xFF);
-                        myLedStripe.sendRgbBuf(aBuf);
-                    }, 1000);
+
+
 
                 }
 
