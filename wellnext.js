@@ -92,7 +92,10 @@ http.createServer(function (request, response) {
             aBuf[i + 0] = r;
             aBuf[i + 1] = g;
             aBuf[i + 2] = b;
-            myLedStripe.sendRgbBuf(aBuf);
+            setTimeout(function () {
+                myLedStripe.sendRgbBuf(aBuf);
+            },1000);
+
         }
 
     }
