@@ -12,9 +12,14 @@ console.log('running a git hook');
 		"method": "fill",
 		"section": "1",
 		"color": {"r":"FF", "g": "FF", "b": "00"}
-	}
+	};
+	var options = {
+		uri: ip,
+		method: 'POST',
+		json: payload
+	};
 	
-	request.post(ip, {form: payload}, function (error, response, body) {
+	request(options, function (error, response, body) {
 		if (!error && response.statusCode == 200) {
 			console.log(body); // Print the response.
 		}
