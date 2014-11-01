@@ -78,16 +78,16 @@ http.createServer(function (request, response) {
 
             if (request.method == 'fill') {
                 if (requestData.section == 'all') {
-                    fillBuffer(aBuf, 1, 0x00, 0x00, 0xFF);
-                    fillBuffer(aBuf, 2, 0x00, 0xFF, 0x00);
-                    fillBuffer(aBuf, 3, 0xFF, 0x00, 0x00);
+                    fillBuffer(aBuf, 1,requestData.color.r, requestData.color.g, requestData.color.b);
+                    fillBuffer(aBuf, 2, requestData.color.r, requestData.color.g, requestData.color.b);
+                    fillBuffer(aBuf, 3,requestData.color.r, requestData.color.g, requestData.color.b);
                 }
                 else {
 
                     fillBuffer(aBuf, requestData.section, requestData.color.r, requestData.color.g, requestData.color.b);
                 }
 
-                myLedStripe.sendRgbBuf(aBuf);
+
             }
             else if (request.method = 'off')
             {
@@ -96,6 +96,7 @@ http.createServer(function (request, response) {
                 fillBuffer(aBuf, 2, 0xFF, 0xFF, 0xFF);
                 fillBuffer(aBuf, 3, 0xFF, 0xFF , 0xFF);
             }
+            myLedStripe.sendRgbBuf(aBuf);
             setTimeout(function () {
                 //chaseBuffer(aBuf, 3, 0xFF, 0x00, 0x00);
             }, 1000);
