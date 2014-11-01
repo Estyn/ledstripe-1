@@ -77,9 +77,7 @@ http.createServer(function (request, response) {
         response.writeHead(200, "OK", {'Content-Type': 'text/plain'});
         response.end();
 
-    }
-    )
-    ;
+    
 }
 else
 {
