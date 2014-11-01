@@ -1,6 +1,6 @@
 var querystring = require('querystring');
 var http = require('http');
-var myLedStripe = require('./index');
+//var myLedStripe = require('./index');
 
 function nonformatted(){
 var somevar = 'do i get tabbed?'
@@ -44,9 +44,9 @@ function processPost(request, response, callback) {
                       myStripeType = 'LPD8806';
                       mySpiDevice = '/dev/spidev0.1';
                       console.log('Testing ' + myStripeType + ' LED stripe with ' + numLEDs + ' LEDs on SPI ' + mySpiDevice);
-                      myLedStripe.fill(0xFF, 0x00, 0x00);
+                      //myLedStripe.fill(0xFF, 0x00, 0x00);
                       // connecting to SPI
-                      myLedStripe.connect(numLEDs, myStripeType, mySpiDevice);
+                      //myLedStripe.connect(numLEDs, myStripeType, mySpiDevice);
 
                       response.writeHead(200, "OK", {'Content-Type': 'text/plain'});
                       response.end();
