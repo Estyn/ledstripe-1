@@ -4,9 +4,9 @@ var myLedStripe = require('./index');
 var numLEDs = 240;
 var aBuf = new Buffer(numLEDs * 3);
 
-function nonformatted(){
-var somevar = 'do i get tabbed?'
-console.log('test');
+function nonformatted() {
+    var somevar = 'do i get tabbed?'
+    console.log('test');
 
 }
 
@@ -27,7 +27,7 @@ function processPost(request, response, callback) {
         request.on('end', function () {
             console.log('querydata');
             console.log(queryData);
-            request.post =queryData;
+            request.post = queryData;
             callback();
         });
 
@@ -44,7 +44,7 @@ function processPost(request, response, callback) {
 // }
 function stringToHex(str) {
     var hex, i;
-   // var str = "\u6f22\u5b57"; // "\u6f22\u5b57" === "漢字"
+    // var str = "\u6f22\u5b57"; // "\u6f22\u5b57" === "漢字"
     var result = "";
     for (i = 0; i < str.length; i++) {
         hex = str.charCodeAt(i).toString(16);
@@ -68,7 +68,7 @@ http.createServer(function (request, response) {
             requestData.color.r = stringToHex(requestData.color.r);
             requestData.color.g = stringToHex(requestData.color.g);
             requestData.color.b = stringToHex(requestData.color.b);
-console.log(requestData.color.r );
+            console.log(requestData.color.r);
 
             // everything possibly sane
             myStripeType = 'LPD8806';
@@ -85,8 +85,7 @@ console.log(requestData.color.r );
                 fillBuffer(aBuf, 2, 0x00, 0xFF, 0x00);
                 fillBuffer(aBuf, 3, 0xFF, 0x00, 0x00);
             }
-            else
-            {
+            else {
 
                 fillBuffer(aBuf, requestData.section, requestData.color.r, requestData.color.g, requestData.color.b);
             }
@@ -106,14 +105,7 @@ console.log(requestData.color.r );
         response.writeHead(200, "OK", {'Content-Type': 'text/plain'});
         response.end();
     }
-    function fillBuffer(aBuf, section, r, g, b) {
-        for (var i = numLEDs * (section - 1); i < numLEDs * section; i += 3) {
 
-            aBuf[i + 0] = r;
-            aBuf[i + 1] = g;
-            aBuf[i + 2] = b;
-        }
-    }
 
     function chaseBuffer(aBuf, section, r, g, b) {
         for (var i = numLEDs * (section - 1); i < numLEDs * section; i += 3) {
@@ -141,3 +133,11 @@ console.log(requestData.color.r );
     }
 }).
     listen(8000);
+function fillBuffer(aBuf, section, r, g, b) {
+    for (var i = numLEDs * (section - 1); i < numLEDs * section; i += 3) {
+
+        aBuf[i + 0] = r;
+        aBuf[i + 1] = b;
+        aBuf[i + 2] = g;
+    }
+}
