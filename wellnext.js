@@ -20,6 +20,8 @@ function processPost(request, response, callback) {
         });
 
         request.on('end', function () {
+            console.log('querydata');
+            console.log(queryData);
             request.post = querystring.parse(queryData);
             callback();
         });
