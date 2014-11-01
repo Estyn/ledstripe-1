@@ -135,7 +135,7 @@ http.createServer(function (request, response) {
     listen(8000);
 function fillBuffer(aBuf, section, r, g, b) {
     for (var i = numLEDs * (section - 1); i < numLEDs * section; i += 3) {
-
+ 
         aBuf[i + 0] = r;
         aBuf[i + 1] = b;
         aBuf[i + 2] = g;
