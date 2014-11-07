@@ -191,7 +191,7 @@ http.createServer(function (request, response) {
 
     }
 }).
-    listen(8000);
+    listen(3141);
 function fillBuffer(aBuf, section, r, g, b) {
     for (var i = numLEDs * (section - 1); i < numLEDs * section; i += 3) {
 
